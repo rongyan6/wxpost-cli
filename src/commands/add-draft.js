@@ -122,6 +122,23 @@ async function maybeCompress(buffer, filename, sizeLimit, hardLimit, allowedExts
 async function uploadContentImages(wxhtml, mdDir, appid) {
   const IMG_RE = /(<img\b[^>]*?\ssrc=")([^"]+)(")/gi;
 
+  function toLocalImagePath(src) {
+    const normalizedSrc = src.startsWith('file://')
+      ? new URL(src).pathname
+      : src;
+
+    let decodedSrc = normalizedSrc;
+    try {
+      decodedSrc = decodeURI(normalizedSrc);
+    } catch {
+      // Keep original src if decoding fails so we don't make the path worse.
+    }
+
+    return path.isAbsolute(decodedSrc)
+      ? decodedSrc
+      : path.resolve(mdDir, decodedSrc);
+  }
+
   // 收集所有唯一的本地 src
   const localSrcs = new Set();
   for (const m of wxhtml.matchAll(IMG_RE)) {
@@ -135,7 +152,7 @@ async function uploadContentImages(wxhtml, mdDir, appid) {
   // 逐一上传，建立 src → wx_url 映射
   const urlMap = new Map();
   for (const src of localSrcs) {
-    const absPath = path.isAbsolute(src) ? src : path.resolve(mdDir, src);
+    const absPath = toLocalImagePath(src);
     if (!fs.existsSync(absPath)) {
       throw new Error(`内容图不存在: ${absPath}`);
     }

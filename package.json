@@ -1,6 +1,6 @@
 {
   "name": "@rongyan/wxpost-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "熔岩微信公众号发布客户端",
   "bin": {
     "wxpost": "bin/wxpost-cli.js"
