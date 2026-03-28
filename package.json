@@ -1,0 +1,45 @@
+{
+  "name": "@rongyan/wxpost-cli",
+  "version": "0.1.0",
+  "description": "熔岩微信公众号发布客户端",
+  "bin": {
+    "wxpost": "./bin/wxpost-cli.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "start": "node bin/wxpost-cli.js"
+  },
+  "keywords": [
+    "wechat",
+    "wxpost",
+    "cli",
+    "weixin",
+    "markdown",
+    "publish"
+  ],
+  "author": "rongyan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rongyan6/wxpost-cli.git"
+  },
+  "homepage": "https://github.com/rongyan6/wxpost-cli#readme",
+  "bugs": {
+    "url": "https://github.com/rongyan6/wxpost-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@rongyan/mdflow-cli": "^0.1.3",
+    "imagemin": "^9.0.1",
+    "imagemin-jpegtran": "^8.0.0",
+    "imagemin-optipng": "^8.0.0"
+  }
+}
