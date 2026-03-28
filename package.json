@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "熔岩微信公众号发布客户端",
   "bin": {
-    "wxpost": "./bin/wxpost-cli.js"
+    "wxpost": "bin/wxpost-cli.js"
   },
   "files": [
     "bin",
