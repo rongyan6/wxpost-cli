@@ -1,6 +1,6 @@
 {
   "name": "@rongyan/wxpost-cli",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "熔岩微信公众号发布客户端",
   "bin": {
     "wxpost": "bin/wxpost-cli.js"
@@ -37,7 +37,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@rongyan/mdflow-cli": "^0.1.9",
+    "@rongyan/mdflow-cli": "^0.2.0",
     "imagemin": "^9.0.1",
     "imagemin-jpegtran": "^8.0.0",
     "imagemin-optipng": "^8.0.0"
